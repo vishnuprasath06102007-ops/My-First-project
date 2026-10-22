@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OASYS Certificate Generator</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f9; display:flex; justify-content:center; padding:30px; }
+        .card { background:white; padding:30px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1); width:450px; }
+        h2 { color:#0d2358; text-align:center; }
+        input, button { width:100%; margin:10px 0; padding:12px; border-radius:8px; border:1px solid #ccc; }
+        button { background:#0d2358; color:white; border:none; font-weight:bold; cursor:pointer; }
+        button:hover { background:#1a3a8a; }
+        .row { display:flex; gap:10px; }
+        .row input { flex:1; }
+        label { font-size:13px; color:#555; margin-top:10px; display:block; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>OASYS Auto Certificate</h2>
+    <form action="/generate" method="post" enctype="multipart/form-data">
+        <label>1. Certificate Template (PNG/JPG)</label>
+        <input type="file" name="template" accept="image/*" required>
+        
+        <label>2. Students CSV (First column = Name)</label>
+        <input type="file" name="csv" accept=".csv" required>
+        
+        <label>Perfect Position (Your value: 442)</label>
+        <div class="row">
+            <input type="number" name="y_pos" value="442" placeholder="Y Position">
+            <input type="number" name="font_size" value="54" placeholder="Font Size">
+        </div>
+        <label>Color (Default OASYS Blue)</label>
+        <div class="row">
+            <input type="number" name="color_r" value="13" style="border-left:5px solid red">
+            <input type="number" name="color_g" value="35" style="border-left:5px solid green">
+            <input type="number" name="color_b" value="88" style="border-left:5px solid blue">
+        </div>
+        <button type="submit">🚀 Generate & Download ZIP</button>
+    </form>
+    <p style="font-size:11px; text-align:center; color:#888; margin-top:15px;">CSV Example: <br> Name<br>VISHNU PRASATH R<br>BARATH S</p>
+</div>
+</body>
+</html>
